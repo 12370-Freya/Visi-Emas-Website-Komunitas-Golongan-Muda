@@ -1,0 +1,202 @@
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #d8d8d8;
+  padding-top: var(--navbar-height, 72px); /* make room for fixed navbar */
+}
+
+:root {
+  --navbar-height: 72px; /* default navbar height used for calc() */
+}
+
+:root {
+  --section-overlap: 40px; /* vertical overlap between cards and banner */
+  --section-max-width: 960px; /* standard card max width */
+}
+
+/* Account for iOS notch / safe-area display */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+/* Ensure fixed navbar sits flush at the very top across devices */
+.navbar.fixed-top {
+  top: calc(var(--safe-top)) !important;
+  margin-top: 0 !important;
+}
+
+/* Force no top gap in Edge/Chrome/Safari/Firefox - reset any margins and ensure nav pinned */
+html, body { margin: 0; padding: 0; }
+nav.navbar { position: fixed !important; top: calc(var(--safe-top)) !important; left: 0; right: 0; }
+
+/* Ensure body includes safe-area top padding along with navbar height */
+body { padding-top: calc(var(--navbar-height, 72px) + var(--safe-top)); }
+
+/* Bootstrap-based navbar styling */
+.navbar {
+  padding: 0.6rem 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.navbar-shadow {
+  /* stronger shadow under navbar to make it more visible */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 2000; /* keep nav above hero */
+}
+
+/* Navbar menu */
+.navbar-nav .nav-link {
+  color: #191919 !important;
+  font-weight: 600;
+  padding: 0.5rem 0.7rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: orangered !important;
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: rgba(255, 68, 0, 0.06);
+}
+
+/* Re-usable legacy image rule (for other page images if referenced) */
+.logo-img-legacy {
+  width: 50px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: "Segoe UI", sans-serif;
+  color: #191919;
+  font-weight: 600;
+  padding: 6px 0;
+  transition: all;
+  transition-duration: 300ms;
+  border-bottom: 1px solid rgba(255, 68, 0, 0);
+}
+
+nav ul li a:hover {
+  color: orangered;
+  border-bottom: 1px solid orangered;
+}
+
+/* user icon in navbar */
+.user-register i {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.user-register:hover i {
+  color: orangered;
+}
+
+
+/* News page extra styles - image sizing for consistent cards */
+.news-card .news-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* make the featured image taller */
+.col-lg-8 .news-image {
+  height: 320px;
+}
+
+/* Secondary banner between Tujuan and Founders */
+.banner-breaker-2 {
+  background-image: url('./business.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 160px;
+  position: relative;
+}
+
+.banner-breaker-2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.18);
+}
+
+/* News hero banner below navbar */
+.hero-section {
+  height: 420px;
+  display: flex;
+  align-items: center; /* vertically center the content */
+  justify-content: center; /* center horizontally */
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: #fff;
+  position: relative; /* allow absolute positioned elements inside hero */
+}
+
+.hero-section .container {
+  text-align: center;
+  padding: 0 1rem; /* keep small horizontal padding, no bottom gap needed for centering */
+}
+
+/* Hero logo in the top-left of the hero section */
+.hero-logo {
+  position: absolute;
+  top: 12px; /* small offset from top of hero */
+  right: 12px; /* move to top-right */
+  width: 80px; /* hero logo restored to original size */
+  height: auto;
+  border-radius: 6px;
+  background: transparent; /* ensure background is transparent */
+  padding: 0; /* no padding so image background shows through */
+  box-sizing: content-box;
+  z-index: 105; /* keep it above the hero background */
+}
+
+@media (max-width: 768px) {
+  .hero-logo {
+    width: 56px;
+    right: 10px;
+    top: 8px;
+  }
+  .logo-img { width: 72px; }
+}
+
+.navbar-brand .logo-img:hover {
+  transform: scale(1.12);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+}
+.navbar-brand:focus-within .logo-img {
+  transform: scale(1.12);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+}
+
+.hero-section h1, .hero-section p {
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 768px) {
+  .hero-section { height: 320px; }
+  .hero-section .container { padding: 0 1rem; }
+  .hero-section h1 { font-size: 1.5rem; }
+}

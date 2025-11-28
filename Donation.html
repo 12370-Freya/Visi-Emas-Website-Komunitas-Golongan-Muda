@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Support Visi Emas</title>
+		<link rel="stylesheet" href="./Style Donation.css">
+		<script src="https://kit.fontawesome.com/88f05daeb4.js" crossorigin="anonymous"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #9a9a9a;">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-white navbar-shadow fixed-top">
+		<div class="container-fluid">
+			<!-- Logo -->
+			<a class="navbar-brand" href="./Home Index.html">
+				<img src="./Logo.png" alt="Logo" class="logo-img" />
+			</a>
+
+			<!-- Mobile toggle -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="mainNav">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+					<li class="nav-item">
+						<a class="nav-link" href="./News.html">News</a>
+					</li>
+
+					<!-- Activity dropdown -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="activityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Activity
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="activityDropdown">
+							<li><a class="dropdown-item" href="./Innovation.html">Innovation</a></li>
+							<li><a class="dropdown-item" href="./Article.html">Articles</a></li>
+						</ul>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="./Donation.html">Donations</a>
+					</li>
+
+					<!-- Registration / user icon -->
+					<li class="nav-item">
+						<a class="nav-link user-register" href="#" title="Register / Sign In">
+							<i class="fa-solid fa-circle-user"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Donation hero -->
+	<section class="donation-hero position-relative">
+		<div class="container text-center">
+			<h1>Support Visi Emas</h1>
+			<p>Dana akan disalurkan kepada pihak yang membutuhkan seperti panti asuhan, panti jompo, program ramah lingkungan, orang miskin yang membutuhkan, dan masih banyak lagi.<br><br><strong>HANYA MERUPAKAN DEMO<br><br></strong></p>
+		</div>
+		<img src="./Logo SMA.png" alt="Logo SMA" class="hero-logo" />
+	</section>
+
+	<!-- Donation Card -->
+	<section class="donation-card-wrapper">
+		<div class="container">
+			<div class="donation-card">
+				<form id="donationForm" novalidate>
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label for="firstName" class="form-label">First Name</label>
+							<input type="text" class="form-control" id="firstName" placeholder="John" required>
+						</div>
+						<div class="col-md-6">
+							<label for="lastName" class="form-label">Last Name</label>
+							<input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+						</div>
+						<div class="col-md-6">
+							<label for="email" class="form-label">Email</label>
+							<input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+						</div>
+						<div class="col-md-6">
+							<label for="phone" class="form-label">Phone</label>
+							<input type="tel" class="form-control" id="phone" placeholder="0812xxxx" required>
+						</div>
+						<div class="col-12">
+							<label class="form-label">Payment Method</label>
+							<div class="payment-options">
+								<label class="payment-option" for="paymentBank">
+									<input type="radio" name="payment" id="paymentBank" value="bank">
+									<i class="fa-solid fa-building-columns" alt="Bank"></i>
+									<span>Bank Transfer</span>
+								</label>
+								<label class="payment-option" for="paymentGopay">
+									<input type="radio" name="payment" id="paymentGopay" value="gopay">
+									<i class="fa-solid fa-wallet" alt="GoPay"></i>
+									<span>GoPay</span>
+								</label>
+								<label class="payment-option" for="paymentOther">
+									<input type="radio" name="payment" id="paymentOther" value="other">
+									<i class="fa-solid fa-piggy-bank" alt="Other"></i>
+									<span>Other</span>
+								</label>
+								<label class="payment-option" for="paymentCard">
+									<input type="radio" name="payment" id="paymentCard" value="card">
+									<i class="fa-solid fa-credit-card" alt="Credit Card"></i>
+									<span>Credit Card</span>
+								</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label for="amount" class="form-label">Amount (IDR)</label>
+							<input type="number" class="form-control donation-amount" id="amount" value="100000" min="1000" required>
+						</div>
+						<div class="col-md-8 d-flex align-items-end justify-content-start">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="agreeTerms">
+								<label class="form-check-label" for="agreeTerms">
+									I agree to the terms and privacy policy
+								</label>
+							</div>
+						</div>
+						<!-- Bigger donate button under the form, centered -->
+						<div class="col-12 text-center mt-3">
+							<button id="donateButton" class="btn donate-cta btn-lg px-5" disabled>Donate</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-light text-center py-4">
+		<div class="container">
+			<p>"Menjadi Pemimpin yang Peduli, Kreatif, dan Berwawasan Global"</p>
+            <p>&copy; 2025 Proyek SAS Kelompok 4 Kelas X4. All rights reserved.</p>
+		</div>
+	</footer>
+
+	<script>
+		function updateDonateButtonState() {
+			const form = document.getElementById('donationForm');
+			const donateBtn = document.getElementById('donateButton');
+			const paymentSelected = !!document.querySelector('input[name="payment"]:checked');
+			const termsChecked = document.getElementById('agreeTerms').checked;
+			const active = (paymentSelected && termsChecked && form.checkValidity());
+			donateBtn.disabled = !active;
+			donateBtn.classList.toggle('enabled', active);
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const paymentOptions = document.querySelectorAll('.payment-option');
+			paymentOptions.forEach(label => {
+				label.addEventListener('click', () => {
+					paymentOptions.forEach(l => l.classList.remove('active'));
+					label.classList.add('active');
+					const input = label.querySelector('input[type=radio]');
+					if (input) input.checked = true;
+					updateDonateButtonState();
+				});
+			});
+
+			// Attach input listeners
+			const inputs = document.querySelectorAll('#donationForm input');
+			inputs.forEach(i => i.addEventListener('input', updateDonateButtonState));
+			const check = document.getElementById('agreeTerms');
+			if (check) check.addEventListener('change', updateDonateButtonState);
+
+			// Hide mobile nav on link click (like other pages)
+			const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+			navLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					const navCollapseEl = document.getElementById('mainNav');
+					if (!navCollapseEl) return;
+					const bsCollapse = bootstrap.Collapse.getInstance(navCollapseEl);
+					if (bsCollapse && window.getComputedStyle(document.querySelector('.navbar-toggler')).display !== 'none') {
+						bsCollapse.hide();
+					}
+				});
+			});
+
+			updateDonateButtonState();
+
+			// demo form submit
+				document.getElementById('donationForm').addEventListener('submit', function(e) {
+				e.preventDefault();
+				if (document.getElementById('donateButton').disabled) return;
+				alert('Thank you for your donation! (DEMO ONLY)');
+				this.reset();
+					document.querySelectorAll('.payment-option.active').forEach(l => l.classList.remove('active'));
+					// reset donate button visuals
+					const donateBtn = document.getElementById('donateButton');
+					donateBtn.classList.remove('enabled');
+				updateDonateButtonState();
+			});
+		});
+	</script>
+</body>
+</html>
+

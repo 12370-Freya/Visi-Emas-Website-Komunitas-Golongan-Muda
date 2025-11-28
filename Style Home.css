@@ -1,0 +1,395 @@
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  padding-top: var(--navbar-height, 72px);
+}
+
+:root {
+  --navbar-height: 72px; 
+}
+
+:root {
+  --section-overlap: 40px; 
+  --section-max-width: 960px; 
+}
+
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+.navbar {
+  padding: 0.6rem 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.navbar-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 2000; 
+}
+
+/* Navbar menu */
+.navbar-nav .nav-link {
+  color: #191919 !important;
+  font-weight: 600;
+  padding: 0.5rem 0.7rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: orangered !important;
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: rgba(255, 68, 0, 0.06);
+}
+
+.logo-img-legacy {
+  width: 50px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: "Segoe UI", sans-serif;
+  color: #191919;
+  font-weight: 600;
+  padding: 6px 0;
+  transition: all;
+  transition-duration: 300ms;
+  border-bottom: 1px solid rgba(255, 68, 0, 0);
+}
+
+nav ul li a:hover {
+  color: orangered;
+  border-bottom: 1px solid orangered;
+}
+
+.user-register i {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.user-register:hover i {
+  color: orangered;
+}
+
+/* Hero styles */
+.hero-wrapper {
+  /* remove top gap so carousel sits directly under the navbar while keeping nav shadow visible */
+  margin-top: 0;
+}
+
+.hero-content {
+  text-align: left;
+  color: #191919;
+  padding-top: 1rem;
+  padding-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  border: 2px solid orangered;
+  color: orangered;
+  background: transparent !important;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 220ms ease;
+}
+
+.hero-btn:hover, .hero-btn:focus {
+  color: #fff !important;
+  background: orangered !important;
+  border-color: orangered !important;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(255, 68, 0, 0.15);
+}
+
+.hero-carousel {
+  height: calc(100vh - var(--navbar-height)); /* fill viewport height below the navbar */
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.hero-carousel .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-carousel-wrapper {
+  position: relative;
+  z-index: 100; 
+}
+
+.hero-logo {
+  position: absolute;
+  top: calc(var(--safe-top, 0px) + 12px);
+  right: 12px;
+  width: 80px; 
+  height: auto;
+  border-radius: 6px;
+  background: transparent;
+  padding: 0;
+  box-sizing: content-box;
+  z-index: 105;
+}
+
+@media (max-width: 768px) {
+  .hero-logo { width: 56px; right: 10px; top: calc(var(--safe-top, 0px) + 8px); }
+  .logo-img { width: 72px; }
+}
+
+/* Pop effect on hover for navbar logos */
+.navbar-brand .logo-img:hover,
+.navbar-brand:focus-within .logo-img {
+  transform: scale(1.12);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 102; 
+  transform: translateY(-50%); 
+  display: flex; 
+  justify-content: center; 
+  pointer-events: none; 
+}
+
+.hero-overlay .container {
+  pointer-events: auto; 
+  max-width: 760px; 
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: rgba(0,0,0,0.36);
+  padding: 1.5rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: none;
+  position: relative;
+  z-index: 103;
+}
+
+/* Dim carousel images with overlay */
+.hero-carousel .carousel-item {
+  position: relative;
+}
+
+.hero-carousel .carousel-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1; 
+}
+
+.hero-carousel .carousel-item img {
+  position: relative;
+  z-index: 0;
+}
+
+.hero-overlay .hero-title,
+.hero-overlay .hero-sub,
+.hero-overlay .hero-btn {
+  color: #ffffff; 
+}
+
+/* Default: center text inside hero overlay */
+.hero-content {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center; 
+}
+
+/* Provide a utility class if you want the text left-aligned instead */
+.hero-content.left-aligned {
+  text-align: left;
+}
+
+.hero-content {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-btn.centered {
+  display: inline-block;
+  margin: 0 auto 0; 
+}
+
+.hero-content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .hero-carousel { height: 360px; }
+  .hero-title { font-size: 1.75rem; }
+}
+
+/* Info section below hero */
+.info-section {
+  background: #ffffff; 
+  color: #222222;
+}
+
+.info-paragraph {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Lifted container for Info section */
+.info-section .container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: none;
+  position: relative;
+  z-index: 10;
+  margin: 0 auto calc(-1 * var(--section-overlap)) auto; 
+  max-width: var(--section-max-width); 
+}
+
+@media (max-width: 768px) {
+  .info-paragraph { font-size: 1rem; }
+}
+
+/* Banner */
+.banner-breaker {
+  background-image: url('./pandawara.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 220px;
+  position: relative;
+  margin: 0;
+  display: block;
+}
+
+.banner-breaker .banner-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.28);
+}
+
+/* Tujuan section */
+.tujuan-section {
+  background: #fff;
+  color: #222;
+}
+
+.tujuan-header {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.tujuan-paragraph {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Lifted container for Tujuan section */
+.tujuan-section .container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: none;
+  position: relative;
+  z-index: 10;
+  margin: calc(-1 * var(--section-overlap)) auto 0 auto; /* pull up to overlap the banner slightly and center horizontally */
+  max-width: var(--section-max-width);
+}
+
+@media (max-width: 768px) {
+  .banner-breaker { height: 160px; }
+  .tujuan-header { font-size: 1.5rem; }
+  .tujuan-paragraph { font-size: 1rem; }
+  :root { --section-overlap: 20px; }
+  .info-section .container, .tujuan-section .container { margin-top: 0; margin-bottom: 0; padding: 1rem; }
+  .tujuan-section .container { margin-top: calc(-1 * var(--section-overlap)); }
+  .info-section .container, .tujuan-section .container { max-width: 92%; }
+}
+
+/* Founders Section */
+.founders-section {
+  background: orangered;
+  color: #fff;
+}
+
+.founders-header {
+  color: #fff;
+}
+
+.founder-card {
+  width: 100%;
+  max-width: 300px;
+}
+
+.founder-name {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.founders-description {
+  max-width: 960px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .banner-breaker-2 { height: 120px; }
+  .founder-img { height: 160px; }
+}
+

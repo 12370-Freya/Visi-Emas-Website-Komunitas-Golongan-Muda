@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi Emas Innovations</title>
+    <link rel="stylesheet" href="./Style Innovation.css">
+    <script src="https://kit.fontawesome.com/88f05daeb4.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #d8d8d8;">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-shadow fixed-top">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="./Home Index.html">
+        <img src="./Logo.png" alt="Logo" class="logo-img" />
+      </a>
+
+      <!-- Mobile toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="./News.html">News</a>
+          </li>
+
+          <!-- Activity dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="activityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Activity
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="activityDropdown">
+              <li><a class="dropdown-item" href="./Innovation.html">Innovation</a></li>
+              <li><a class="dropdown-item" href="./Article.html">Articles</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./Donation.html">Donations</a>
+          </li>
+
+          <!-- Registration / user icon -->
+          <li class="nav-item">
+            <a class="nav-link user-register" href="#" title="Register / Sign In">
+              <i class="fa-solid fa-circle-user"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Inovasi hero banner -->
+  <section class="inovasi-hero">
+    <img src="./Logo SMA.png" alt="Logo SMA" class="hero-logo" />
+  </section>
+
+  <!-- Search bar leading to Google -->
+  <section class="search-section py-3">
+    <div class="container">
+      <form action="https://www.google.com/search" method="get" target="_blank" class="d-flex justify-content-center">
+        <input class="form-control me-2" type="search" placeholder="Cari inovasi atau topik..." aria-label="Search" name="q" style="max-width:700px;">
+        <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Latest Updates header -->
+  <section class="latest-updates py-3">
+    <div class="container">
+      <h4 class="text-muted">Latest Updates</h4>
+    </div>
+  </section>
+
+  <!-- Updates cards -->
+  <main class="container mb-5">
+    <div class="row g-4">
+      <div class="col-md-12 col-lg-4">
+        <div class="card inovasi-card h-100">
+          <div class="row g-0 h-100">
+            <div class="col-4">
+              <img src="./Poster Cat Air.png" class="img-fluid h-100 object-cover" alt="update 1">
+            </div>
+            <div class="col-8">
+              <div class="card-body">
+                <h5 class="card-title">Cat Air dari Bahan Nabati-Ecolour</h5>
+                <a href="https://drive.google.com/file/d/1O4zaQjpjnJC4yMPYMtd8SfjOuqsoxK0d/view?usp=sharing" class="btn btn-sm btn-primary">Watch Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <div class="card inovasi-card h-100">
+          <div class="row g-0 h-100">
+            <div class="col-4">
+              <img src="./poster lipbalm lavender.png" class="img-fluid h-100 object-cover" alt="update 2">
+            </div>
+            <div class="col-8">
+              <div class="card-body">
+                <h5 class="card-title">Lipbalm Nabati-Purple Lavendar </h5>
+                <a href="https://drive.google.com/file/d/1oe3ympdDs0MCgK2ej5Fr3VgbtqGgHnIf/view?usp=sharing" class="btn btn-sm btn-primary">Watch Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <!-- Footer -->
+    <footer class="bg-light text-center py-4">
+        <div class="container">
+            <p>"Menjadi Pemimpin yang Peduli, Kreatif, dan Berwawasan Global"</p>
+            <p>&copy; 2025 Proyek SAS Kelompok 4 Kelas X4. All rights reserved.</p>
+        </div>
+    </footer>
+
+  
+  <script>
+  // Collapse navbar on click (for mobile) when a nav-link is tapped + keep CSS var for nav height updated
+  document.addEventListener('DOMContentLoaded', function () {
+    function setNavbarHeightVar() {
+      const nav = document.querySelector('nav.navbar');
+      if (!nav) return;
+      const navHeight = Math.ceil(nav.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--navbar-height', navHeight + 'px');
+      // also ensure body padding equals the navbar height when fixed
+      if (document.body) document.body.style.paddingTop = navHeight + 'px';
+    }
+
+    // initial set
+    setNavbarHeightVar();
+    window.addEventListener('resize', setNavbarHeightVar);
+
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const navCollapseEl = document.getElementById('mainNav');
+        if (!navCollapseEl) return;
+        const bsCollapse = bootstrap.Collapse.getInstance(navCollapseEl);
+        if (bsCollapse && window.getComputedStyle(document.querySelector('.navbar-toggler')).display !== 'none') {
+          bsCollapse.hide();
+        }
+      });
+    });
+  });
+  </script>
+</body>
+</html>

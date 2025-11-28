@@ -1,0 +1,235 @@
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5;
+  padding-top: var(--navbar-height, 72px);
+}
+
+:root { --safe-top: env(safe-area-inset-top, 0px); }
+
+/* Banner */
+.donation-hero {
+  background: #3A5A40;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  position: relative; /* ensure this can be layered under the donation card */
+  z-index: 1;
+}
+.donation-hero h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+.donation-hero p {
+  margin: 0;
+  max-width: 900px;
+  color: rgba(255,255,255,0.95);
+  position: relative; /* allow absolute positioned elements inside */
+}
+
+/* Donation card */
+.donation-card-wrapper {
+  /* pull the donation card up to overlap the hero, but keep banner description visible */
+  margin: -60px auto 3rem; /* less overlap so hero text remains visible */
+  position: relative;
+  z-index: 220;
+  max-width: 900px;
+  padding: 0 1rem;
+}
+.donation-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.payment-options {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.payment-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.06);
+  cursor: pointer;
+}
+.payment-option img { width: 36px; height: auto; display:block; }
+.payment-option input[type="radio"] { display: none; }
+.payment-option.active { background: rgba(0,0,0,0.04); }
+
+.donation-amount { width: 140px; }
+
+.donate-cta {
+  background: #d1d1d1; /* default: neutral gray when disabled */
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  display: inline-block;
+  width: auto;
+  min-width: 220px;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.donate-cta.btn-lg {
+  padding: 16px 34px;
+  font-size: 1.25rem;
+}
+.donate-cta[disabled] { opacity: 1; cursor: not-allowed; }
+
+/* when the form is valid and the button should become actionable */
+.donate-cta.enabled {
+  background: orangered; /* highlight when active */
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 68, 0, 0.18);
+}
+
+@media (max-width: 576px) {
+  .donation-hero { padding: 3rem 1rem; }
+  .donation-card { padding: 1rem; }
+  /* reduce overlap on small screens for readability */
+  .donation-card-wrapper { margin: -30px auto 1.5rem; }
+  /* full-width button on small screens */
+  .donate-cta { width: 100% !important; padding-left: 16px; padding-right: 16px; }
+  .logo-img { width: 72px; }
+}
+
+.navbar-brand .logo-img:hover,
+.navbar-brand:focus-within .logo-img {
+  transform: scale(1.12);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+}
+
+/* Donation hero logo top-right */
+.donation-hero .hero-logo {
+  position: absolute;
+  /* place the logo at the top-right inside the banner; use safe-top only so it sits inside the banner */
+  top: calc(var(--safe-top, 0px) + 12px);
+  right: 12px;
+  width: 80px;
+  height: auto;
+  background: transparent;
+  border-radius: 6px;
+  padding: 0;
+  z-index: 350; /* keep the logo above the overlaying card */
+}
+@media (max-width: 576px) {
+  .donation-hero .hero-logo { width: 56px; right: 10px; top: calc(var(--safe-top, 0px) + 8px); }
+}
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #d8d8d8;
+  padding-top: var(--navbar-height, 72px);
+}
+
+:root {
+  --navbar-height: 72px;
+}
+
+:root {
+  --section-overlap: 40px;
+  --section-max-width: 960px;
+}
+
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+.navbar.fixed-top {
+  top: calc(var(--safe-top)) !important;
+  margin-top: 0 !important;
+}
+
+html, body { margin: 0; padding: 0; }
+nav.navbar { position: fixed !important; top: calc(var(--safe-top)) !important; left: 0; right: 0; }
+
+body { padding-top: calc(var(--navbar-height, 72px) + var(--safe-top)); }
+
+.navbar {
+  padding: 0.6rem 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.navbar-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 2000; 
+}
+
+.navbar-nav .nav-link {
+  color: #191919 !important;
+  font-weight: 600;
+  padding: 0.5rem 0.7rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: orangered !important;
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: rgba(255, 68, 0, 0.06);
+}
+
+
+.logo-img-legacy {
+  width: 50px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: "Segoe UI", sans-serif;
+  color: #191919;
+  font-weight: 600;
+  padding: 6px 0;
+  transition: all;
+  transition-duration: 300ms;
+  border-bottom: 1px solid rgba(255, 68, 0, 0);
+}
+
+nav ul li a:hover {
+  color: orangered;
+  border-bottom: 1px solid orangered;
+}
+
+.user-register i {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.user-register:hover i {
+  color: orangered;
+}
